@@ -12,7 +12,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @RestController
 public class SseController {
     final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
-    private SseEmitter sseEmitter;
 
     @RequestMapping("/subscribe")
     public SseEmitter subscribe() throws IOException {
@@ -35,7 +34,7 @@ public class SseController {
     }
 
     @RequestMapping("/complete")
-    public void complete(){
+    public void complete() {
         emitters.forEach(ResponseBodyEmitter::complete);
     }
 }
