@@ -13,7 +13,7 @@ class DemoApplicationTests {
 	private WebTestClient client;
 
 	@Test
-	void shouldRetrieveSSE() {
+	void shouldRetrieveSse() {
 		var flux = client.get()
 				.uri("/subscribe")
 				.exchange()
